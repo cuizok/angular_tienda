@@ -1,0 +1,68 @@
+<div class="home-container">
+  <!-- Cabecera -->
+<header class="header shadow">
+  <div class="header-content">
+    <h1 class="logo">La Tienda Cuikilina Fifas</h1>
+    <nav class="nav">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+<a routerLink="/productos" routerLinkActive="active">Productos</a>
+  <a href="#">Contacto</a>
+</nav>
+
+  </div>
+</header>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <!-- Banner -->
+    <section class="banner">
+      <h2>Descubre Nuestros Productos</h2>
+      <p>La mejor calidad en jerseys y artículos deportivos</p>
+    </section>
+
+    <!-- Productos -->
+    <section class="featured-products">
+      <h2 class="section-title">Productos Destacados</h2>
+
+      <!-- Mensaje de error -->
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <!-- Spinner / mensaje de carga -->
+      <p *ngIf="!errorMessage && productosDestacados.length === 0">
+        Cargando productos...
+      </p>
+
+      <!-- Tarjetas de productos -->
+      <div class="products-list" *ngIf="productosDestacados.length">
+        <div class="product-card" *ngFor="let p of productosDestacados">
+          <img [src]="p.imagenUrl" [alt]="p.nombre" class="product-image" />
+          <div class="product-info">
+            <h3>{{ p.nombre }}</h3>
+            <p>{{p.descripcion}}</p>
+            <p class="price">${{ p.precio }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+<footer class="footer animated-footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>La Tienda Cuikilina</h3>
+      <p>Tu mejor opción en jerseys</p>
+    </div>
+    <div class="footer-section">
+      <p><strong>Email:</strong> contactoarrobamitienda.com</p>
+      <p><strong>Tel:</strong> 56 1173 4411</p>
+    </div>
+    <div class="footer-section social">
+      <a href="#" class="social-icon">🌐</a>
+      <a href="#" class="social-icon">📘</a>
+      <a href="#" class="social-icon">📸</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 La Tienda Cuikilina. Todos los derechos reservados.</div>
+</footer>
+</div>
